@@ -1,0 +1,1885 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Englisch Abi 2026 -- Textformen Lernblatt</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+–bg: #0e0e12;
+–surface: #16161d;
+–surface2: #1e1e28;
+–border: #2a2a38;
+–accent1: #7c6aff;
+–accent2: #ff6a6a;
+–accent3: #6affb8;
+–accent4: #ffb86a;
+–text: #e8e8f0;
+–muted: #7a7a9a;
+}
+
+- { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+background: var(–bg);
+color: var(–text);
+font-family: ‘DM Sans’, sans-serif;
+min-height: 100vh;
+padding: 2rem 1rem 4rem;
+}
+
+/* Background texture */
+body::before {
+content: ‘’;
+position: fixed;
+inset: 0;
+background:
+radial-gradient(ellipse 80% 50% at 20% 10%, rgba(124,106,255,0.08) 0%, transparent 60%),
+radial-gradient(ellipse 60% 40% at 80% 80%, rgba(106,255,184,0.05) 0%, transparent 50%);
+pointer-events: none;
+z-index: 0;
+}
+
+.container {
+max-width: 900px;
+margin: 0 auto;
+position: relative;
+z-index: 1;
+}
+
+/* Header */
+.header {
+text-align: center;
+margin-bottom: 3rem;
+padding: 2.5rem 2rem;
+border: 1px solid var(–border);
+border-radius: 16px;
+background: var(–surface);
+position: relative;
+overflow: hidden;
+}
+
+.header::before {
+content: ‘’;
+position: absolute;
+top: 0; left: 0; right: 0;
+height: 3px;
+background: linear-gradient(90deg, var(–accent1), var(–accent3), var(–accent2));
+}
+
+.header-tag {
+font-family: ‘DM Mono’, monospace;
+font-size: 0.72rem;
+color: var(–accent1);
+letter-spacing: 0.15em;
+text-transform: uppercase;
+margin-bottom: 0.75rem;
+}
+
+.header h1 {
+font-family: ‘Syne’, sans-serif;
+font-size: clamp(1.8rem, 5vw, 2.8rem);
+font-weight: 800;
+line-height: 1.1;
+margin-bottom: 0.5rem;
+}
+
+.header h1 span {
+background: linear-gradient(135deg, var(–accent1), var(–accent3));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+
+.header p {
+color: var(–muted);
+font-size: 0.95rem;
+font-weight: 300;
+}
+
+/* Nav tabs */
+.nav {
+display: flex;
+gap: 0.5rem;
+flex-wrap: wrap;
+margin-bottom: 2rem;
+padding: 0.75rem;
+background: var(–surface);
+border: 1px solid var(–border);
+border-radius: 12px;
+}
+
+.nav-btn {
+padding: 0.5rem 1rem;
+border-radius: 8px;
+border: 1px solid transparent;
+background: transparent;
+color: var(–muted);
+font-family: ‘DM Sans’, sans-serif;
+font-size: 0.82rem;
+font-weight: 500;
+cursor: pointer;
+transition: all 0.2s;
+white-space: nowrap;
+}
+
+.nav-btn:hover {
+color: var(–text);
+background: var(–surface2);
+}
+
+.nav-btn.active {
+color: var(–text);
+background: var(–surface2);
+border-color: var(–border);
+}
+
+.nav-btn.part1 { –dot: var(–accent1); }
+.nav-btn.part2 { –dot: var(–accent3); }
+
+.nav-btn::before {
+content: ‘●’;
+font-size: 0.5rem;
+margin-right: 0.4rem;
+color: var(–dot, var(–muted));
+vertical-align: middle;
+}
+
+/* Section label */
+.section-label {
+font-family: ‘DM Mono’, monospace;
+font-size: 0.7rem;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+color: var(–muted);
+margin-bottom: 1rem;
+padding-left: 0.25rem;
+}
+
+/* Cards */
+.card {
+background: var(–surface);
+border: 1px solid var(–border);
+border-radius: 16px;
+margin-bottom: 1.25rem;
+overflow: hidden;
+display: none;
+animation: fadeIn 0.3s ease;
+}
+
+.card.visible { display: block; }
+.card.all-visible { display: block; }
+
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(8px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+.card-header {
+padding: 1.25rem 1.5rem;
+display: flex;
+align-items: center;
+gap: 1rem;
+cursor: pointer;
+user-select: none;
+border-bottom: 1px solid transparent;
+transition: border-color 0.2s;
+}
+
+.card.open .card-header {
+border-bottom-color: var(–border);
+}
+
+.card-icon {
+width: 42px;
+height: 42px;
+border-radius: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1.2rem;
+flex-shrink: 0;
+}
+
+.card-title-wrap { flex: 1; }
+
+.card-title {
+font-family: ‘Syne’, sans-serif;
+font-size: 1.05rem;
+font-weight: 700;
+margin-bottom: 0.15rem;
+}
+
+.card-subtitle {
+font-size: 0.78rem;
+color: var(–muted);
+font-weight: 300;
+}
+
+.card-badge {
+font-family: ‘DM Mono’, monospace;
+font-size: 0.68rem;
+padding: 0.3rem 0.7rem;
+border-radius: 20px;
+letter-spacing: 0.05em;
+flex-shrink: 0;
+}
+
+.card-toggle {
+width: 28px;
+height: 28px;
+border-radius: 8px;
+background: var(–surface2);
+border: 1px solid var(–border);
+color: var(–muted);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 0.9rem;
+transition: transform 0.3s, color 0.2s;
+flex-shrink: 0;
+}
+
+.card.open .card-toggle {
+transform: rotate(180deg);
+color: var(–text);
+}
+
+.card-body {
+display: none;
+padding: 1.5rem;
+gap: 1.25rem;
+}
+
+.card.open .card-body {
+display: grid;
+grid-template-columns: 1fr 1fr;
+animation: fadeIn 0.25s ease;
+}
+
+@media (max-width: 640px) {
+.card.open .card-body {
+grid-template-columns: 1fr;
+}
+}
+
+/* Body sections */
+.body-section { }
+
+.body-section.full-width {
+grid-column: 1 / -1;
+}
+
+.body-section h4 {
+font-family: ‘DM Mono’, monospace;
+font-size: 0.68rem;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+margin-bottom: 0.75rem;
+padding-bottom: 0.4rem;
+border-bottom: 1px solid var(–border);
+}
+
+.body-section ul {
+list-style: none;
+display: flex;
+flex-direction: column;
+gap: 0.4rem;
+}
+
+.body-section ul li {
+font-size: 0.875rem;
+color: var(–muted);
+padding-left: 1rem;
+position: relative;
+line-height: 1.5;
+font-weight: 300;
+}
+
+.body-section ul li::before {
+content: ‘→’;
+position: absolute;
+left: 0;
+color: var(–accent);
+font-size: 0.75rem;
+}
+
+.body-section ul li strong {
+color: var(–text);
+font-weight: 500;
+}
+
+/* Structure box */
+.structure {
+background: var(–surface2);
+border: 1px solid var(–border);
+border-radius: 10px;
+padding: 1rem;
+font-family: ‘DM Mono’, monospace;
+font-size: 0.78rem;
+line-height: 1.8;
+color: var(–muted);
+grid-column: 1 / -1;
+}
+
+.structure .step {
+display: flex;
+align-items: flex-start;
+gap: 0.75rem;
+padding: 0.35rem 0;
+border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.structure .step:last-child { border-bottom: none; }
+
+.step-num {
+background: var(–accent);
+color: var(–bg);
+width: 20px;
+height: 20px;
+border-radius: 5px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 0.65rem;
+font-weight: 700;
+flex-shrink: 0;
+margin-top: 1px;
+}
+
+.step-text { color: var(–text); }
+.step-text span { color: var(–muted); font-size: 0.72rem; }
+
+/* Phrase chips */
+.phrases {
+grid-column: 1 / -1;
+display: flex;
+flex-wrap: wrap;
+gap: 0.5rem;
+}
+
+.phrase {
+background: var(–surface2);
+border: 1px solid var(–border);
+padding: 0.35rem 0.75rem;
+border-radius: 6px;
+font-size: 0.78rem;
+color: var(–text);
+font-family: ‘DM Mono’, monospace;
+border-left: 2px solid var(–accent);
+}
+
+/* Warning box */
+.warning-box {
+grid-column: 1 / -1;
+background: rgba(255,106,106,0.08);
+border: 1px solid rgba(255,106,106,0.2);
+border-radius: 10px;
+padding: 1rem;
+font-size: 0.82rem;
+color: #ff9a9a;
+line-height: 1.6;
+}
+
+.warning-box strong { color: var(–accent2); }
+
+/* Tip box */
+.tip-box {
+grid-column: 1 / -1;
+background: rgba(124,106,255,0.08);
+border: 1px solid rgba(124,106,255,0.2);
+border-radius: 10px;
+padding: 1rem;
+font-size: 0.82rem;
+color: #b0a8ff;
+line-height: 1.6;
+}
+
+.tip-box strong { color: var(–accent1); }
+
+/* Color themes per card */
+.theme-purple { –accent: var(–accent1); }
+.theme-red { –accent: var(–accent2); }
+.theme-green { –accent: var(–accent3); }
+.theme-orange { –accent: var(–accent4); }
+.theme-blue { –accent: #6ab8ff; }
+.theme-pink { –accent: #ff6ab8; }
+.theme-yellow { –accent: #f0ff6a; }
+.theme-teal { –accent: #6affee; }
+
+.card-icon { background: rgba(var(–accent-rgb, 124,106,255), 0.12); }
+.theme-purple .card-icon { background: rgba(124,106,255,0.12); }
+.theme-red .card-icon { background: rgba(255,106,106,0.12); }
+.theme-green .card-icon { background: rgba(106,255,184,0.12); }
+.theme-orange .card-icon { background: rgba(255,184,106,0.12); }
+.theme-blue .card-icon { background: rgba(106,184,255,0.12); }
+.theme-pink .card-icon { background: rgba(255,106,184,0.12); }
+.theme-yellow .card-icon { background: rgba(240,255,106,0.12); }
+.theme-teal .card-icon { background: rgba(106,255,238,0.12); }
+
+.card-badge {
+background: rgba(var(–badge-rgb),0.12);
+color: var(–accent);
+border: 1px solid rgba(var(–badge-rgb),0.2);
+}
+
+.theme-purple .card-badge { –badge-rgb: 124,106,255; }
+.theme-green .card-badge { –badge-rgb: 106,255,184; }
+.theme-orange .card-badge { –badge-rgb: 255,184,106; }
+
+/* Divider */
+.divider {
+display: flex;
+align-items: center;
+gap: 1rem;
+margin: 2rem 0 1.5rem;
+}
+
+.divider-line {
+flex: 1;
+height: 1px;
+background: var(–border);
+}
+
+.divider-label {
+font-family: ‘DM Mono’, monospace;
+font-size: 0.7rem;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+padding: 0.35rem 0.9rem;
+border-radius: 20px;
+border: 1px solid var(–border);
+color: var(–muted);
+white-space: nowrap;
+}
+
+.divider-label.p1 { color: var(–accent1); border-color: rgba(124,106,255,0.3); background: rgba(124,106,255,0.06); }
+.divider-label.p2 { color: var(–accent3); border-color: rgba(106,255,184,0.3); background: rgba(106,255,184,0.06); }
+
+/* Expand all */
+.controls {
+display: flex;
+gap: 0.5rem;
+margin-bottom: 1.5rem;
+flex-wrap: wrap;
+}
+
+.ctrl-btn {
+padding: 0.45rem 1rem;
+border-radius: 8px;
+border: 1px solid var(–border);
+background: var(–surface);
+color: var(–muted);
+font-size: 0.8rem;
+font-family: ‘DM Sans’, sans-serif;
+cursor: pointer;
+transition: all 0.2s;
+}
+
+.ctrl-btn:hover { color: var(–text); background: var(–surface2); }
+
+/* Example box */
+.example-toggle {
+grid-column: 1 / -1;
+background: transparent;
+border: 1px dashed var(–border);
+border-radius: 10px;
+padding: 0.6rem 1rem;
+color: var(–accent);
+font-family: ‘DM Mono’, monospace;
+font-size: 0.75rem;
+cursor: pointer;
+text-align: left;
+transition: all 0.2s;
+width: 100%;
+}
+.example-toggle:hover { background: var(–surface2); }
+
+.example-box {
+grid-column: 1 / -1;
+display: none;
+background: var(–surface2);
+border: 1px solid var(–border);
+border-left: 3px solid var(–accent);
+border-radius: 10px;
+padding: 1.25rem;
+font-size: 0.84rem;
+line-height: 1.8;
+color: var(–text);
+font-family: ‘DM Sans’, sans-serif;
+white-space: pre-wrap;
+}
+.example-box.open { display: block; }
+.example-box .anno {
+color: var(–accent);
+font-family: ‘DM Mono’, monospace;
+font-size: 0.7rem;
+font-weight: 600;
+letter-spacing: 0.08em;
+display: block;
+margin-bottom: 0.5rem;
+}
+.example-box .label {
+display: inline-block;
+background: rgba(124,106,255,0.15);
+border: 1px solid rgba(124,106,255,0.3);
+border-radius: 4px;
+padding: 0 0.4rem;
+font-size: 0.68rem;
+font-family: ‘DM Mono’, monospace;
+color: var(–accent1);
+margin-left: 0.3rem;
+vertical-align: middle;
+}
+
+/* Stilmittel table */
+.devices-table {
+grid-column: 1 / -1;
+width: 100%;
+border-collapse: collapse;
+font-size: 0.8rem;
+}
+.devices-table th {
+background: var(–surface);
+color: var(–accent);
+font-family: ‘DM Mono’, monospace;
+font-size: 0.68rem;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+padding: 0.6rem 0.75rem;
+text-align: left;
+border-bottom: 2px solid var(–accent);
+}
+.devices-table td {
+padding: 0.55rem 0.75rem;
+border-bottom: 1px solid var(–border);
+vertical-align: top;
+line-height: 1.5;
+color: var(–muted);
+font-size: 0.8rem;
+}
+.devices-table td:first-child {
+color: var(–text);
+font-family: ‘DM Mono’, monospace;
+font-weight: 500;
+white-space: nowrap;
+font-size: 0.78rem;
+}
+.devices-table td em {
+color: var(–accent);
+font-style: italic;
+font-size: 0.75rem;
+}
+.devices-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+/* Linking words grid */
+.linking-grid {
+grid-column: 1 / -1;
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+gap: 1rem;
+}
+.linking-cat {
+background: var(–surface2);
+border: 1px solid var(–border);
+border-radius: 10px;
+padding: 1rem;
+}
+.linking-cat h5 {
+font-family: ‘DM Mono’, monospace;
+font-size: 0.68rem;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: var(–accent);
+margin-bottom: 0.75rem;
+padding-bottom: 0.4rem;
+border-bottom: 1px solid var(–border);
+}
+.linking-cat .lw {
+display: flex;
+flex-direction: column;
+gap: 0.3rem;
+}
+.linking-cat .lw span {
+font-size: 0.78rem;
+color: var(–text);
+font-family: ‘DM Mono’, monospace;
+padding: 0.2rem 0;
+}
+.linking-cat .lw span em {
+color: var(–muted);
+font-size: 0.7rem;
+font-style: normal;
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-tag">Englisch Abitur Berlin 2026 · Grundkurs</div>
+    <h1>Textformen <span>Lernblatt</span></h1>
+    <p>Alle Texttypen · Struktur · Tipps · Phrasen</p>
+  </div>
+
+  <!-- Nav -->
+
+  <div class="nav">
+    <button class="nav-btn part1 active" onclick="filterCards('all')">Alle</button>
+    <button class="nav-btn part1" onclick="filterCards('part1')">● Teil 1</button>
+    <button class="nav-btn part2" onclick="filterCards('part2')">● Teil 2 Mediation</button>
+    <button class="nav-btn part1" onclick="filterCards('analyse')">Analyse</button>
+    <button class="nav-btn part1" onclick="filterCards('argumentativ')">Argumentativ</button>
+    <button class="nav-btn part1" onclick="filterCards('kreativ')">Kreativ</button>
+    <button class="nav-btn part1" onclick="filterCards('stilmittel')">Stilmittel</button>
+    <button class="nav-btn part1" onclick="filterCards('linking')">Linking Words</button>
+  </div>
+
+  <div class="controls">
+    <button class="ctrl-btn" onclick="expandAll()">▼ Alle aufklappen</button>
+    <button class="ctrl-btn" onclick="collapseAll()">▲ Alle zuklappen</button>
+  </div>
+
+  <!-- TEIL 1 -->
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-label p1">Teil 1 — Leseverstehen & Schreiben</div><div class="divider-line"></div></div>
+
+  <!-- SUMMARY -->
+
+  <div class="card theme-purple visible" data-tags="part1 analyse" id="summary">
+    <div class="card-header" onclick="toggle(this)">
+      <div class="card-icon">📄</div>
+      <div class="card-title-wrap">
+        <div class="card-title">Summary</div>
+        <div class="card-subtitle">Aufgabe 1 · Zusammenfassung eines englischen Texts</div>
+      </div>
+      <div class="card-badge">Aufgabe 1</div>
+      <div class="card-toggle">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="body-section">
+        <h4 style="color:var(--accent1)">Was zu tun ist</h4>
+        <ul>
+          <li>Den Text <strong>sinngemäß</strong> in eigenen Worten zusammenfassen</li>
+          <li><strong>Keine eigene Meinung</strong> -- rein sachlich bleiben</li>
+          <li>Hauptaussagen rausfiltern, Details weglassen</li>
+          <li>Reihenfolge des Originals <strong>nicht</strong> zwingend folgen</li>
+          <li>Nur Infos aus dem Text -- kein Vorwissen einbringen</li>
+        </ul>
+      </div>
+      <div class="body-section">
+        <h4 style="color:var(--accent1)">Häufige Fehler</h4>
+        <ul>
+          <li><strong>Zu lang</strong> -- eine Summary ist kurz und kompakt</li>
+          <li>Direkte Zitate aus dem Text verwenden</li>
+          <li>Eigene Meinung oder Bewertung einfließen lassen</li>
+          <li>Zu viele Details, Beispiele aus dem Original übernehmen</li>
+          <li>Mit "In this text..." anfangen (zu generisch)</li>
+        </ul>
+      </div>
+      <div class="structure">
+        <div class="step"><div class="step-num" style="background:var(--accent1)">1</div><div class="step-text">Topic sentence <span>-- Worum geht es? Autor, Quelle, Hauptthema in 1 Satz</span></div></div>
+        <div class="step"><div class="step-num" style="background:var(--accent1)">2</div><div class="step-text">Main points <span>-- Die wichtigsten Aussagen des Texts in logischer Reihenfolge</span></div></div>
+        <div class="step"><div class="step-num" style="background:var(--accent1)">3</div><div class="step-text">Conclusion <span>-- Fazit oder Schlussaussage des Texts (falls vorhanden)</span></div></div>
+      </div>
+      <div class="body-section full-width">
+        <h4 style="color:var(--accent1)">Nützliche Phrasen</h4>
+      </div>
+      <div class="phrases">
+        <span class="phrase">The article/text deals with...</span>
+        <span class="phrase">The author argues that...</span>
+        <span class="phrase">According to the text...</span>
+        <span class="phrase">The main point is that...</span>
+        <span class="phrase">Furthermore, the text states...</span>
+        <span class="phrase">In conclusion, the author...</span>
+        <span class="phrase">The text focuses on...</span>
+        <span class="phrase">As a result,...</span>
+      </div>
+      <button class="example-toggle" onclick="toggleExample(this)" style="--accent:var(--accent1)">▼ Beispieltext anzeigen</button>
+      <div class="example-box" style="--accent:var(--accent1)"><span class="anno">✦ BEISPIEL — Summary zum Thema "Social Media &amp; Mental Health"</span>The article "Scrolling into Darkness" by journalist Amy Chen, published in The Guardian in 2023, examines the growing impact of social media on the mental health of teenagers. <span class="label">→ Topic sentence</span>
+
+Chen argues that platforms such as Instagram and TikTok are deliberately designed to maximise screen time, which leads to increased anxiety, poor sleep, and a distorted self-image among young users. She further points out that algorithmic content feeds often amplify negative emotions rather than positive ones. <span class="label">→ Main points</span>
+
+In conclusion, the author calls for stricter regulation of social media platforms and urges parents to monitor their children’s online activity more carefully. <span class="label">→ Conclusion</span></div>
+</div>
+
+  </div>
+
+  <!-- OUTLINE -->
+
+  <div class="card theme-orange visible" data-tags="part1 analyse" id="outline">
+    <div class="card-header" onclick="toggle(this)">
+      <div class="card-icon">🗂️</div>
+      <div class="card-title-wrap">
+        <div class="card-title">Outline</div>
+        <div class="card-subtitle">Aufgabe 1 · Strukturierte Gliederung</div>
+      </div>
+      <div class="card-badge">Aufgabe 1</div>
+      <div class="card-toggle">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="body-section">
+        <h4 style="color:var(--accent4)">Was zu tun ist</h4>
+        <ul>
+          <li>Strukturierte <strong>Gliederung</strong> eines Arguments oder Texts</li>
+          <li><strong>Stichpunkte</strong>, keine ganzen Sätze</li>
+          <li>Hierarchisch aufbauen (I. → A. → 1.)</li>
+          <li>Logische Argumentation zeigen</li>
+          <li>Nur die wichtigsten Punkte -- keine Details</li>
+        </ul>
+      </div>
+      <div class="body-section">
+        <h4 style="color:var(--accent4)">Häufige Fehler</h4>
+        <ul>
+          <li>Ganze Sätze schreiben statt <strong>Stichpunkte</strong></li>
+          <li>Zu viele Unterpunkte -- 2--3 pro Abschnitt reichen</li>
+          <li>Keine klare Hierarchie erkennbar</li>
+          <li>Eigene Meinung reinbringen (wenn nicht gefragt)</li>
+        </ul>
+      </div>
+      <div class="structure">
+        <div class="step"><div class="step-num" style="background:var(--accent4);color:#000">I</div><div class="step-text">Introduction <span>-- Topic + Thesis statement</span></div></div>
+        <div class="step"><div class="step-num" style="background:var(--accent4);color:#000">II</div><div class="step-text">Main Body <span>-- A. First argument / B. Second argument / C. Counterargument</span></div></div>
+        <div class="step"><div class="step-num" style="background:var(--accent4);color:#000">III</div><div class="step-text">Conclusion <span>-- Summary + final statement / recommendation</span></div></div>
+      </div>
+      <div class="tip-box">
+        <strong>💡 Wichtig – Sätze oder Stichpunkte?</strong><br><br>
+        Es kommt auf die Aufgabenstellung an:<br><br>
+        <strong style="color:#f0c060">→ "Outline the information / what X did"</strong><br>
+        Schreibe <em>kurze vollständige Sätze</em> – so wie in einem knappen Absatz. Kein Stichpunkt-Format. Siehe Beispieltext unten.<br><br>
+        <strong style="color:#f0c060">→ "Write an outline for a speech / essay"</strong><br>
+        Verwende <em>Stichpunkte mit Hierarchie</em> (I. → A. → 1.). Keine ganzen Sätze nötig.
+      </div>
+      <button class="example-toggle" onclick="toggleExample(this)" style="--accent:var(--accent4)">▼ Beispieltext anzeigen</button>
+      <div class="example-box" style="--accent:var(--accent4)"><span class="anno">✦ TYP 1 — "Outline the information" → Kurze Sätze (aus deinen eigenen Notizen!)</span><em style="color:var(--muted);font-size:0.78rem">Task: Outline what Zach Hanf has done and is planning to do in pursuit of his dream.</em>
+
+Zach Hanf has overcome severe obstacles while not giving up on his childhood dream of becoming a surgeon. <span class="label">→ Intro: Hauptaussage in 1 Satz</span>
+
+When he was 18, he caused a car accident resulting in serious injuries and the loss of his left leg. After that he showed extraordinary determination when, despite his pain and disability, he learned to walk with a prosthesis as soon as possible. <span class="label">→ Fakten in kurzen Sätzen</span>
+
+Recently, Hanf has attended a programme at Ohio State University for young people who want to become doctors. As a result, he wants to begin studying medicine only 9 months after his near-fatal accident. <span class="label">→ Aktuelle Pläne</span>
+
+<span class="anno" style="margin-top:1rem">✦ TYP 2 — “Write an outline for a speech/essay” → Stichpunkte mit Hierarchie</span><em style="color:var(--muted);font-size:0.78rem">Task: Write an outline for a persuasive speech: “Should social media be banned for under-16s?”</em>
+
+I. Introduction
+A. Hook: 1 in 3 teens report anxiety linked to social media
+B. Thesis: Social media should be strictly regulated for minors
+
+II. Main Body
+A. Argument 1: Negative impact on mental health
+1. Comparison culture → low self-esteem
+2. Sleep disruption due to screen time
+B. Argument 2: Exposure to harmful content
+1. Algorithms promote extreme content
+2. Cyberbullying increasingly common
+C. Counterargument: Social media enables connection → refute
+
+III. Conclusion
+A. Summary of main points
+B. Call for age verification laws + final statement</div>
+</div>
+
+  </div>
+
+  <!-- TEXT ANALYSIS -->
+
+  <div class="card theme-red visible" data-tags="part1 analyse" id="analysis">
+    <div class="card-header" onclick="toggle(this)">
+      <div class="card-icon">🔍</div>
+      <div class="card-title-wrap">
+        <div class="card-title">Text Analysis</div>
+        <div class="card-subtitle">Aufgabe 2 · Analyse mit Stilmitteln</div>
+      </div>
+      <div class="card-badge">Aufgabe 2</div>
+      <div class="card-toggle">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="body-section">
+        <h4 style="color:var(--accent2)">Was zu tun ist</h4>
+        <ul>
+          <li>Text auf <strong>Inhalt + sprachliche Mittel</strong> analysieren</li>
+          <li>Stilmittel nennen, belegen (Zitat), <strong>Wirkung erklären</strong></li>
+          <li>Immer: Beleg → Name → Wirkung (P-E-E Methode)</li>
+          <li>Auf Struktur, Ton, Perspektive eingehen</li>
+          <li>Fiktional: Erzählperspektive, Charaktere, Setting</li>
+        </ul>
+      </div>
+      <div class="body-section">
+        <h4 style="color:var(--accent2)">Wichtige Stilmittel</h4>
+        <ul>
+          <li><strong>Metaphor</strong> -- indirekter Vergleich</li>
+          <li><strong>Simile</strong> -- "like" / "as" Vergleich</li>
+          <li><strong>Alliteration</strong> -- gleiche Anfangsbuchstaben</li>
+          <li><strong>Repetition</strong> -- Wiederholung zur Betonung</li>
+          <li><strong>Rhetorical question</strong> -- Frage ohne Antwort</li>
+          <li><strong>Irony/Sarcasm</strong> -- Gegenteil gemeint</li>
+          <li><strong>Hyperbole</strong> -- Übertreibung</li>
+          <li><strong>Personification</strong> -- Vermenschlichung</li>
+        </ul>
+      </div>
+      <div class="structure">
+        <div class="step"><div class="step-num" style="background:var(--accent2)">1</div><div class="step-text">Introduction <span>-- Titel, Autor, Textsorte, Thema, Intention in 2--3 Sätzen</span></div></div>
+        <div class="step"><div class="step-num" style="background:var(--accent2)">2</div><div class="step-text">Content <span>-- Kurze Zusammenfassung der Hauptaussage</span></div></div>
+        <div class="step"><div class="step-num" style="background:var(--accent2)">3</div><div class="step-text">Language Analysis <span>-- Stilmittel mit Beleg + Wirkung (P-E-E)</span></div></div>
+        <div class="step"><div class="step-num" style="background:var(--accent2)">4</div><div class="step-text">Conclusion <span>-- Gesamtwirkung + Intention des Autors</span></div></div>
+      </div>
+      <div class="body-section full-width">
+        <h4 style="color:var(--accent2)">P-E-E Methode (Point -- Evidence -- Effect)</h4>
+      </div>
+      <div class="phrases">
+        <span class="phrase">The author uses... to suggest/show/highlight...</span>
+        <span class="phrase">The use of [device] creates a feeling of...</span>
+        <span class="phrase">This implies that...</span>
+        <span class="phrase">The [metaphor] "..." conveys...</span>
+        <span class="phrase">By using..., the author emphasises...</span>
+        <span class="phrase">This has the effect of...</span>
+        <span class="phrase">The repetition of "..." reinforces...</span>
+        <span class="phrase">The rhetorical question makes the reader...</span>
+      </div>
+      <button class="example-toggle" onclick="toggleExample(this)" style="--accent:var(--accent2)">▼ Beispieltext anzeigen</button>
+      <div class="example-box" style="--accent:var(--accent2)"><span class="anno">✦ BEISPIEL — Text Analysis (Auszug, Thema: Environment)</span>The article "A Planet on Fire" by George Monbiot is a non-fictional opinion piece published in 2022, which aims to persuade readers to take urgent action against climate change. <span class="label">→ Intro</span>
+
+Monbiot employs the metaphor of the planet being “on fire” to convey the sense of immediate crisis and destruction. This creates a vivid image of danger and urgency in the reader’s mind, making the threat feel tangible rather than abstract. <span class="label">→ P-E-E</span>
+
+Furthermore, the use of rhetorical questions such as “How many more warnings do we need?” directly implicates the reader, creating a sense of personal responsibility and guilt. This technique prevents the audience from remaining passive. <span class="label">→ P-E-E</span>
+
+Overall, Monbiot’s piece effectively combines emotive language and rhetorical devices to shock the reader into action. His intention is not merely to inform, but to provoke an immediate emotional and political response. <span class="label">→ Conclusion</span></div>
+</div>
+
+  </div>
+
+  <!-- CARTOON ANALYSIS -->
+
+  <div class="card theme-pink visible" data-tags="part1 analyse" id="cartoon">
+    <div class="card-header" onclick="toggle(this)">
+      <div class="card-icon">🖼️</div>
+      <div class="card-title-wrap">
+        <div class="card-title">Cartoon / Image Analysis</div>
+        <div class="card-subtitle">Aufgabe 2 · Diskontinuierliche Texte</div>
+      </div>
+      <div class="card-badge">Aufgabe 2</div>
+      <div class="card-toggle">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="body-section">
+        <h4 style="color:#ff6ab8">Was zu tun ist</h4>
+        <ul>
+          <li>Bild <strong>beschreiben</strong> (was ist zu sehen?)</li>
+          <li>Botschaft / Message <strong>interpretieren</strong></li>
+          <li>Symbolik, Ironie, Übertreibung erkennen</li>
+          <li>Kontext / aktueller Bezug herstellen</li>
+          <li>Stilmittel der Bildsprache benennen</li>
+        </ul>
+      </div>
+      <div class="body-section">
+        <h4 style="color:#ff6ab8">Bildsprachliche Mittel</h4>
+        <ul>
+          <li><strong>Symbolism</strong> -- Objekte stehen für Ideen</li>
+          <li><strong>Exaggeration/Caricature</strong> -- übertriebene Darstellung</li>
+          <li><strong>Irony</strong> -- Gegensatz Bild/Text</li>
+          <li><strong>Labeling</strong> -- Beschriftungen im Bild</li>
+          <li><strong>Juxtaposition</strong> -- Gegensätze nebeneinander</li>
+          <li><strong>Size/Proportion</strong> -- Größenverhältnisse</li>
+        </ul>
+      </div>
+      <div class="structure">
+        <div class="step"><div class="step-num" style="background:#ff6ab8">1</div><div class="step-text">Description <span>-- Was ist zu sehen? (foreground, background, characters)</span></div></div>
+        <div class="step"><div class="step-num" style="background:#ff6ab8">2</div><div class="step-text">Interpretation <span>-- Was bedeutet es? Symbolik? Botschaft?</span></div></div>
+        <div class="step"><div class="step-num" style="background:#ff6ab8">3</div><div class="step-text">Devices <span>-- Welche Mittel werden eingesetzt + Wirkung?</span></div></div>
+        <div class="step"><div class="step-num" style="background:#ff6ab8">4</div><div class="step-text">Context <span>-- Bezug zum Thema / zur Realität herstellen</span></div></div>
+      </div>
+      <div class="phrases">
+        <span class="phrase">The cartoon shows/depicts...</span>
+        <span class="phrase">In the foreground/background...</span>
+        <span class="phrase">The cartoonist uses... to symbolise...</span>
+        <span class="phrase">This is meant to criticise/highlight...</span>
+        <span class="phrase">The exaggeration of... suggests...</span>
+        <span class="phrase">The overall message is...</span>
+      </div>
+      <button class="example-toggle" onclick="toggleExample(this)" style="--accent:#ff6ab8">▼ Beispieltext anzeigen</button>
+      <div class="example-box" style="--accent:#ff6ab8"><span class="anno">✦ BEISPIEL — Cartoon Analysis (Thema: Media &amp; Truth)</span>The cartoon depicts a large television set in the foreground displaying a smiling news anchor, while in the background a city is shown in flames. A family sits comfortably on a sofa, apparently unaware of the disaster behind them. <span class="label">→ Description</span>
+
+The central message of the cartoon is that mainstream media distorts reality and prevents ordinary people from recognising the true state of the world. The juxtaposition of the calm, cheerful TV screen against the burning city symbolises the gap between media representation and reality. <span class="label">→ Interpretation</span>
+
+The cartoonist uses exaggeration — the enormous flames contrast sharply with the family’s relaxed posture — to highlight how desensitised society has become to crisis. The labelling of the TV as “Breaking News” adds irony, as the truly “breaking” events go unnoticed. <span class="label">→ Devices</span>
+
+In the context of today’s media landscape, this cartoon serves as a sharp critique of sensationalist journalism and media bias. <span class="label">→ Context</span></div>
+</div>
+
+  </div>
+
+  <!-- FICTIONAL vs NON-FICTIONAL ANALYSIS -->
+
+  <div class="card theme-orange visible" data-tags="part1 analyse" id="fictional">
+    <div class="card-header" onclick="toggle(this)">
+      <div class="card-icon">📚</div>
+      <div class="card-title-wrap">
+        <div class="card-title">Fictional vs. Non-Fictional Analysis</div>
+        <div class="card-subtitle">Aufgabe 2 · Unterschiede &amp; worauf du achten musst</div>
+      </div>
+      <div class="card-badge">Aufgabe 2</div>
+      <div class="card-toggle">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="body-section">
+        <h4 style="color:var(--accent4)">Fictional Text analysieren</h4>
+        <ul>
+          <li><strong>Genre</strong> – Short story, novel excerpt, poem, play</li>
+          <li><strong>Characterisation</strong> – direkt/indirekt, implicit/explicit</li>
+          <li><strong>Setting</strong> – Zeit, Ort, Atmosphäre, sozialer Hintergrund</li>
+          <li><strong>Plot/Action</strong> – Exposition, Climax, Turning point, Flashback</li>
+          <li><strong>Point of View</strong> – 1st person / 3rd person / omniscient</li>
+          <li><strong>Mode of Presentation</strong> – scenic, panoramic, interior monologue</li>
+          <li><strong>Stilmittel</strong> – Metapher, Anaphora, Symbol, Irony etc.</li>
+        </ul>
+      </div>
+      <div class="body-section">
+        <h4 style="color:var(--accent4)">Non-Fictional Text analysieren</h4>
+        <ul>
+          <li><strong>Genre</strong> – Article, editorial, speech, letter, advertisement</li>
+          <li><strong>Purpose/Intention</strong> – informieren, überzeugen, kritisieren</li>
+          <li><strong>Structure/Layout</strong> – Headline, Subheadings, Topic sentences</li>
+          <li><strong>Register</strong> – formal / neutral / informal / colloquial</li>
+          <li><strong>Wording</strong> – Wortwahl, Connotations, Ambiguity</li>
+          <li><strong>Syntax</strong> – einfache/komplexe Sätze, aktiv/passiv</li>
+          <li><strong>Tone</strong> – serious, ironic, emotional, humorous, objective</li>
+        </ul>
+      </div>
+      <div class="structure">
+        <div class="step"><div class="step-num" style="background:var(--accent4);color:#000">!</div><div class="step-text">Beide Typen <span>– Immer: Stilmittel + Wirkung auf Leser (P-E-E)</span></div></div>
+        <div class="step"><div class="step-num" style="background:var(--accent4);color:#000">F</div><div class="step-text">Fictional extra <span>– Point of view, characterisation, plot structure, setting</span></div></div>
+        <div class="step"><div class="step-num" style="background:var(--accent4);color:#000">N</div><div class="step-text">Non-fictional extra <span>– Purpose, structure/layout, register, tone, syntax</span></div></div>
+      </div>
+      <div class="body-section full-width">
+        <h4 style="color:var(--accent4)">Point of View – Schnellübersicht</h4>
+        <ul>
+          <li><strong>1st person narrator</strong> – "I" → subjektiv, begrenzte Sicht, Nähe zum Leser</li>
+          <li><strong>3rd person limited</strong> – "She/He" → Fokus auf eine Figur, nicht allwissend</li>
+          <li><strong>3rd person omniscient</strong> – allwissend, kennt alle Gedanken/Gefühle</li>
+          <li><strong>Unreliable narrator</strong> – Erzähler täuscht oder irrt sich bewusst</li>
+        </ul>
+      </div>
+      <div class="body-section full-width">
+        <h4 style="color:var(--accent4)">Mode of Presentation – Schnellübersicht</h4>
+        <ul>
+          <li><strong>Scenic mode</strong> – detaillierte Szene, wie ein Film – zeigt statt erzählen</li>
+          <li><strong>Panoramic mode</strong> – Überblick über längere Zeit/Ereignisse, kurze Zusammenfassung</li>
+          <li><strong>Interior monologue</strong> – direkte Gedanken einer Figur, ungefiltert</li>
+          <li><strong>Stream of consciousness</strong> – freier Gedankenfluss, unstrukturiert</li>
+          <li><strong>Direct speech</strong> – wörtliche Rede in Anführungszeichen</li>
+          <li><strong>Indirect/Reported speech</strong> – Gedanken/Rede indirekt wiedergegeben</li>
+        </ul>
+      </div>
+      <div class="phrases">
+        <span class="phrase">The narrator is a first-person narrator who...</span>
+        <span class="phrase">The use of a limited narrator suggests...</span>
+        <span class="phrase">The scenic mode creates the impression that...</span>
+        <span class="phrase">The author's intention is to persuade/inform...</span>
+        <span class="phrase">The informal register suggests the target audience is...</span>
+        <span class="phrase">The structure of the text reflects...</span>
+      </div>
+      <button class="example-toggle" onclick="toggleExample(this)" style="--accent:var(--accent4)">▼ Beispieltext anzeigen</button>
+      <div class="example-box" style="--accent:var(--accent4)"><span class="anno">✦ FICTIONAL — Analyse-Ausschnitt ("A Tale for the Time Being" von Ruth Ozeki)</span>The excerpt is written from a first-person perspective, giving the reader direct access to Nao's thoughts and feelings. This subjective point of view creates a strong sense of intimacy — the reader experiences her loneliness and isolation from the inside. <span class="label">→ Point of View + Wirkung</span>
+
+Ozeki primarily uses the scenic mode of presentation, depicting specific moments such as Nao checking her blog statistics. This technique makes the narrative feel immediate and vivid, drawing the reader into the scene rather than merely summarising events. <span class="label">→ Mode of Presentation + Wirkung</span>
+
+Characterisation is largely implicit: Nao is never described directly, but her self-deprecating language — “maybe I was becoming a pathetic loser” — reveals her fragile self-image. In contrast, Kayla is characterised explicitly as “superconfident” and someone for whom “being number two isn’t even a possibility.” This juxtaposition highlights Nao’s growing sense of social inadequacy. <span class="label">→ Implicit vs. Explicit Characterisation + Contrast</span>
+
+<span class="anno" style="margin-top:1rem">✦ NON-FICTIONAL — Analyse-Ausschnitt (Zeitungsartikel)</span>The article is a non-fictional opinion piece aimed at a general audience. Its informal register — evident in contractions and direct questions — makes the argument accessible and engaging. <span class="label">→ Genre + Register</span>
+
+The structure follows a clear argumentative pattern: the headline grabs attention, the introduction establishes the problem, and each paragraph develops a single point with evidence. This logical layout reinforces the author’s credibility. <span class="label">→ Structure/Layout + Wirkung</span>
+
+The author’s tone is predominantly emotional, using emotive language such as “devastating” and “unacceptable” to provoke a sense of urgency in the reader. The rhetorical question in the final paragraph — “How long can we afford to wait?” — functions as a call to action. <span class="label">→ Tone + Rhetorical Device + Wirkung</span></div>
+</div>
+
+  </div>
+
+  <!-- ESSAY / COMMENT -->
+
+  <div class="card theme-blue visible" data-tags="part1 argumentativ" id="essay">
+    <div class="card-header" onclick="toggle(this)">
+      <div class="card-icon">✍️</div>
+      <div class="card-title-wrap">
+        <div class="card-title">Essay / Comment</div>
+        <div class="card-subtitle">Aufgabe 3 · Argumentativer Text</div>
+      </div>
+      <div class="card-badge">Aufgabe 3</div>
+      <div class="card-toggle">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="body-section">
+        <h4 style="color:#6ab8ff">Was zu tun ist</h4>
+        <ul>
+          <li>Klare <strong>These</strong> aufstellen und verteidigen</li>
+          <li>Pro- und Contra-Argumente abwägen</li>
+          <li><strong>Formelle Sprache</strong> -- keine Umgangssprache</li>
+          <li>Eigene Position klar am Ende vertreten</li>
+          <li>Logische Übergänge zwischen Absätzen</li>
+        </ul>
+      </div>
+      <div class="body-section">
+        <h4 style="color:#6ab8ff">Häufige Fehler</h4>
+        <ul>
+          <li>Keine klare Position beziehen</li>
+          <li>Argumente ohne Belege / Beispiele</li>
+          <li>Zu kurze Absätze (mind. 3--4 Sätze pro Punkt)</li>
+          <li>Informelle Sprache ("I think it's pretty bad")</li>
+          <li>Keine Gegenargumente berücksichtigen</li>
+        </ul>
+      </div>
+      <div class="structure">
+        <div class="step"><div class="step-num" style="background:#6ab8ff;color:#000">1</div><div class="step-text">Introduction <span>-- Hook + Kontext + These (eigene Position)</span></div></div>
+        <div class="step"><div class="step-num" style="background:#6ab8ff;color:#000">2</div><div class="step-text">Argument 1 <span>-- Hauptargument + Beleg + Erklärung</span></div></div>
+        <div class="step"><div class="step-num" style="background:#6ab8ff;color:#000">3</div><div class="step-text">Argument 2 <span>-- Weiteres Argument + Beispiel</span></div></div>
+        <div class="step"><div class="step-num" style="background:#6ab8ff;color:#000">4</div><div class="step-text">Counterargument <span>-- Gegenargument nennen + entkräften</span></div></div>
+        <div class="step"><div class="step-num" style="background:#6ab8ff;color:#000">5</div><div class="step-text">Conclusion <span>-- These wiederholen, Fazit, Ausblick</span></div></div>
+      </div>
+      <div class="phrases">
+        <span class="phrase">It is widely argued that...</span>
+        <span class="phrase">One could argue that...</span>
+        <span class="phrase">However, it must be considered...</span>
+        <span class="phrase">Furthermore / Moreover / In addition...</span>
+        <span class="phrase">Despite this, ...</span>
+        <span class="phrase">In conclusion, it is clear that...</span>
+        <span class="phrase">Taking everything into account...</span>
+        <span class="phrase">While X, it is important to note...</span>
+      </div>
+      <button class="example-toggle" onclick="toggleExample(this)" style="--accent:#6ab8ff">▼ Beispieltext anzeigen</button>
+      <div class="example-box" style="--accent:#6ab8ff"><span class="anno">✦ BEISPIEL — Essay (Thema: "Should renewable energy replace fossil fuels entirely?")</span>As the effects of climate change become increasingly visible, the question of whether renewable energy should fully replace fossil fuels has moved to the centre of public debate. This essay will argue that, despite practical challenges, a complete transition to renewables is both necessary and achievable. <span class="label">→ Introduction + Thesis</span>
+
+First and foremost, the continued use of fossil fuels poses an existential threat to our planet. Scientific evidence overwhelmingly shows that carbon emissions from coal, oil and gas are the primary driver of global warming. By investing in solar, wind and hydroelectric power, nations can drastically reduce their carbon footprint and prevent the worst outcomes of climate change. <span class="label">→ Argument 1</span>
+
+Furthermore, renewable energy offers significant economic advantages in the long term. While the initial infrastructure costs are high, the operational costs of solar and wind energy are far lower than those of fossil fuel plants. Countries such as Germany and Denmark have already demonstrated that a renewable-based economy can be both stable and competitive. <span class="label">→ Argument 2</span>
+
+Admittedly, critics argue that renewables are unreliable due to their dependence on weather conditions. However, rapid advances in battery storage technology are making this concern increasingly irrelevant. With sufficient investment, a stable and fully renewable grid is well within reach. <span class="label">→ Counterargument</span>
+
+In conclusion, the transition to renewable energy is not merely desirable — it is essential. Governments must act decisively now to secure a sustainable future for the next generation. <span class="label">→ Conclusion</span></div>
+</div>
+
+  </div>
+
+  <!-- SPEECH / REDE -->
+
+  <div class="card theme-green visible" data-tags="part1 argumentativ kreativ" id="speech">
+    <div class="card-header" onclick="toggle(this)">
+      <div class="card-icon">🎤</div>
+      <div class="card-title-wrap">
+        <div class="card-title">Speech / Rede</div>
+        <div class="card-subtitle">Aufgabe 3 · Persuasive Rede</div>
+      </div>
+      <div class="card-badge">Aufgabe 3</div>
+      <div class="card-toggle">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="body-section">
+        <h4 style="color:var(--accent3)">Was zu tun ist</h4>
+        <ul>
+          <li>Direkte <strong>Ansprache</strong> des Publikums</li>
+          <li>Rhetorische Mittel bewusst einsetzen</li>
+          <li>Klar überzeugend / persuasiv argumentieren</li>
+          <li>Kontext beachten: Wer spricht? Wo? Zu wem?</li>
+          <li>Starke Eröffnung und starkes Ende</li>
+        </ul>
+      </div>
+      <div class="body-section">
+        <h4 style="color:var(--accent3)">Rhetorische Mittel für Reden</h4>
+        <ul>
+          <li><strong>Rhetorical questions</strong> -- Publikum einbeziehen</li>
+          <li><strong>Repetition / Anaphora</strong> -- Wirkung verstärken</li>
+          <li><strong>Rule of three</strong> -- drei Punkte nacheinander</li>
+          <li><strong>Direct address</strong> -- "You and I know that..."</li>
+          <li><strong>Call to action</strong> -- Zum Handeln auffordern</li>
+          <li><strong>Inclusive language</strong> -- "we", "our", "together"</li>
+        </ul>
+      </div>
+      <div class="structure">
+        <div class="step"><div class="step-num" style="background:var(--accent3);color:#000">1</div><div class="step-text">Opening <span>-- Anrede + starker Einstieg (Frage, Zitat, Statistik)</span></div></div>
+        <div class="step"><div class="step-num" style="background:var(--accent3);color:#000">2</div><div class="step-text">Main body <span>-- 2--3 Argumente, klar gegliedert, mit Beispielen</span></div></div>
+        <div class="step"><div class="step-num" style="background:var(--accent3);color:#000">3</div><div class="step-text">Counterargument <span>-- kurz ansprechen + widerlegen</span></div></div>
+        <div class="step"><div class="step-num" style="background:var(--accent3);color:#000">4</div><div class="step-text">Closing <span>-- Call to action + unvergesslicher letzter Satz</span></div></div>
+      </div>
+      <div class="phrases">
+        <span class="phrase">Ladies and gentlemen,...</span>
+        <span class="phrase">Dear fellow students,...</span>
+        <span class="phrase">Ask yourself: ...</span>
+        <span class="phrase">We cannot afford to ignore...</span>
+        <span class="phrase">The time for action is now.</span>
+        <span class="phrase">Together, we can...</span>
+        <span class="phrase">I urge you to...</span>
+        <span class="phrase">Let me leave you with this thought:</span>
+        <span class="phrase">Thank you for your attention.</span>
+      </div>
+      <button class="example-toggle" onclick="toggleExample(this)" style="--accent:var(--accent3)">▼ Beispieltext anzeigen</button>
+      <div class="example-box" style="--accent:var(--accent3)"><span class="anno">✦ BEISPIEL — Speech (Thema: "We must act on climate change now")</span>Dear fellow students, teachers, and guests — thank you for being here today. <span class="label">→ Opening / Anrede</span>
+
+Let me ask you something. When was the last time you stepped outside and breathed air that did not carry the weight of a crisis? Because whether we acknowledge it or not, our planet is in danger — and we are the generation that must respond. <span class="label">→ Hook / Rhetorical question</span>
+
+The facts are undeniable. Global temperatures have risen by over 1.1 degrees Celsius since the industrial revolution. Wildfires, floods, and droughts are no longer rare events — they are the new normal. And yet, our governments continue to prioritise short-term profit over long-term survival. <span class="label">→ Argument with evidence</span>
+
+Some may say that individual action is pointless — that one person cannot change a global system. But history tells a different story. Every great movement began with individuals who refused to stay silent. We owe it to ourselves, to our communities, and to the generations that will follow us to stand up and demand change. <span class="label">→ Counterargument</span>
+
+So I urge you — write to your representatives. Make sustainable choices. Speak up. Because the time for waiting is over. The time for action is now. <span class="label">→ Call to action</span>
+
+Thank you. <span class="label">→ Closing</span></div>
+</div>
+
+  </div>
+
+  <!-- LETTER TO THE EDITOR -->
+
+  <div class="card theme-yellow visible" data-tags="part1 argumentativ" id="letter-editor">
+    <div class="card-header" onclick="toggle(this)">
+      <div class="card-icon">📰</div>
+      <div class="card-title-wrap">
+        <div class="card-title">Letter to the Editor</div>
+        <div class="card-subtitle">Aufgabe 3 · Formeller Leserbrief</div>
+      </div>
+      <div class="card-badge">Aufgabe 3</div>
+      <div class="card-toggle">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="body-section">
+        <h4 style="color:#f0ff6a">Was zu tun ist</h4>
+        <ul>
+          <li>Reaktion auf einen <strong>Artikel / Bericht</strong></li>
+          <li>Formelle Sprache und formeller <strong>Briefaufbau</strong></li>
+          <li>Bezug auf den Artikel herstellen</li>
+          <li>Eigene Position klar argumentieren</li>
+          <li>Höflicher aber bestimmter Ton</li>
+        </ul>
+      </div>
+      <div class="body-section">
+        <h4 style="color:#f0ff6a">Formaler Aufbau</h4>
+        <ul>
+          <li>Kein Absenderadresse nötig im Abi</li>
+          <li>Anrede: <strong>Dear Editor,</strong></li>
+          <li>Erster Satz: Bezug auf Artikel</li>
+          <li>Abschluss: <strong>Yours faithfully/sincerely,</strong></li>
+          <li>Name am Ende nicht vergessen</li>
+        </ul>
+      </div>
+      <div class="structure">
+        <div class="step"><div class="step-num" style="background:#f0ff6a;color:#000">1</div><div class="step-text">Opening <span>-- "I am writing in response to your article about..."</span></div></div>
+        <div class="step"><div class="step-num" style="background:#f0ff6a;color:#000">2</div><div class="step-text">Position <span>-- Eigene Meinung/These klar formulieren</span></div></div>
+        <div class="step"><div class="step-num" style="background:#f0ff6a;color:#000">3</div><div class="step-text">Arguments <span>-- 2--3 Argumente mit Belegen</span></div></div>
+        <div class="step"><div class="step-num" style="background:#f0ff6a;color:#000">4</div><div class="step-text">Closing <span>-- Forderung oder Appell + formeller Abschluss</span></div></div>
+      </div>
+      <div class="phrases">
+        <span class="phrase">I am writing in response to...</span>
+        <span class="phrase">I was [pleased/concerned] to read...</span>
+        <span class="phrase">I strongly believe that...</span>
+        <span class="phrase">It is deeply concerning that...</span>
+        <span class="phrase">I urge your readers to consider...</span>
+        <span class="phrase">Yours faithfully, / Yours sincerely,</span>
+      </div>
+      <button class="example-toggle" onclick="toggleExample(this)" style="--accent:#f0ff6a">▼ Beispieltext anzeigen</button>
+      <div class="example-box" style="--accent:#f0ff6a"><span class="anno">✦ BEISPIEL — Letter to the Editor (Thema: Screen time in schools)</span>Dear Editor, <span class="label">→ Salutation</span>
+
+I am writing in response to your article “Tablets in Every Classroom”, published on 14th March. While I appreciate the optimism behind this initiative, I am deeply concerned about the implications of increasing screen time for young learners. <span class="label">→ Opening / Bezug auf Artikel</span>
+
+Research consistently shows that excessive screen use negatively affects children’s attention spans and sleep quality. Replacing textbooks with tablets may therefore hinder rather than enhance learning, particularly for primary school students whose cognitive development depends on varied, tactile experiences. <span class="label">→ Argument 1</span>
+
+Moreover, the digital divide remains a serious issue. Not all families can afford reliable internet access at home, meaning homework assigned via online platforms will disadvantage the most vulnerable students. <span class="label">→ Argument 2</span>
+
+I urge your readers and local policymakers to consider a more balanced approach — one that integrates technology thoughtfully rather than wholesale. Our children deserve an education that prepares them for the real world, not one that chains them to a screen. <span class="label">→ Appeal / Closing argument</span>
+
+Yours sincerely,
+A concerned parent <span class="label">→ Formal closing</span></div>
+</div>
+
+  </div>
+
+  <!-- BLOG POST -->
+
+  <div class="card theme-teal visible" data-tags="part1 kreativ" id="blog">
+    <div class="card-header" onclick="toggle(this)">
+      <div class="card-icon">💻</div>
+      <div class="card-title-wrap">
+        <div class="card-title">Blog Post</div>
+        <div class="card-subtitle">Aufgabe 3 · Semi-formeller Meinungstext</div>
+      </div>
+      <div class="card-badge">Aufgabe 3</div>
+      <div class="card-toggle">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="body-section">
+        <h4 style="color:#6affee">Was zu tun ist</h4>
+        <ul>
+          <li>Lockerer, aber <strong>nicht zu informeller</strong> Ton</li>
+          <li>Direkte Leseransprache erlaubt</li>
+          <li>Persönliche Meinung und Erfahrungen einbringen</li>
+          <li>Titel / Überschrift nicht vergessen!</li>
+          <li>Einladend und interessant schreiben</li>
+        </ul>
+      </div>
+      <div class="body-section">
+        <h4 style="color:#6affee">Ton & Stil</h4>
+        <ul>
+          <li>Contractions erlaubt: <strong>it's, don't, I've</strong></li>
+          <li>Leser direkt ansprechen: <strong>"you", "we"</strong></li>
+          <li>Rhetorische Fragen einbauen</li>
+          <li>Kurze, lebendige Sätze möglich</li>
+          <li>Humor / persönliche Anekdoten möglich</li>
+        </ul>
+      </div>
+      <div class="structure">
+        <div class="step"><div class="step-num" style="background:#6affee;color:#000">1</div><div class="step-text">Headline <span>-- Catchy Überschrift (Frage, Provokation, Wortspiel)</span></div></div>
+        <div class="step"><div class="step-num" style="background:#6affee;color:#000">2</div><div class="step-text">Hook <span>-- Einstieg der Leser fesselt (Frage, Statistik, Story)</span></div></div>
+        <div class="step"><div class="step-num" style="background:#6affee;color:#000">3</div><div class="step-text">Main body <span>-- Argumente / Punkte mit persönlichem Bezug</span></div></div>
+        <div class="step"><div class="step-num" style="background:#6affee;color:#000">4</div><div class="step-text">Closing <span>-- Fazit + Aufruf an Leser (Kommentar, Diskussion)</span></div></div>
+      </div>
+      <div class="phrases">
+        <span class="phrase">Have you ever wondered...?</span>
+        <span class="phrase">Let me tell you something...</span>
+        <span class="phrase">Personally, I believe...</span>
+        <span class="phrase">What do you think? Let me know...</span>
+        <span class="phrase">Here's the thing:...</span>
+        <span class="phrase">If you ask me,...</span>
+        <span class="phrase">The bottom line is...</span>
+      </div>
+      <button class="example-toggle" onclick="toggleExample(this)" style="--accent:#6affee">▼ Beispieltext anzeigen</button>
+      <div class="example-box" style="--accent:#6affee"><span class="anno">✦ BEISPIEL — Blog Post (Thema: Fast Fashion)</span>Is Your Wardrobe Destroying the Planet? <span class="label">→ Catchy Headline</span>
+
+Okay, I know that sounds dramatic. But hear me out — because the last time I ordered three t-shirts for €15 online, I didn’t stop to think about what that actually costs. Not just in euros. <span class="label">→ Hook / Personal anecdote</span>
+
+Fast fashion is one of the most polluting industries on the planet. The fashion industry produces around 10% of global carbon emissions — more than aviation and shipping combined. And most of those cute tops we buy end up in landfill within a year. Sounds familiar, right? <span class="label">→ Main point + facts</span>
+
+Personally, I’ve started shopping second-hand, and honestly? It’s way more fun than scrolling through the same five styles on every high-street website. You find unique pieces, save money, and — bonus — you’re not funding a system built on exploitation. <span class="label">→ Personal opinion / tip</span>
+
+The bottom line is this: every purchase is a vote. And I, for one, am done voting for a system that’s burning the planet for profit. What about you? <span class="label">→ Closing / Reader engagement</span></div>
+</div>
+
+  </div>
+
+  <!-- OPEN LETTER -->
+
+  <div class="card theme-purple visible" data-tags="part1 kreativ argumentativ" id="open-letter">
+    <div class="card-header" onclick="toggle(this)">
+      <div class="card-icon">📬</div>
+      <div class="card-title-wrap">
+        <div class="card-title">Open Letter</div>
+        <div class="card-subtitle">Aufgabe 3 · Offener Brief</div>
+      </div>
+      <div class="card-badge">Aufgabe 3</div>
+      <div class="card-toggle">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="body-section">
+        <h4 style="color:var(--accent1)">Was zu tun ist</h4>
+        <ul>
+          <li>Formeller Brief an eine <strong>öffentliche Person/Institution</strong></li>
+          <li>Für ein <strong>breiteres Publikum</strong> geschrieben</li>
+          <li>Klare Forderung oder Botschaft</li>
+          <li>Ton: respektvoll aber direkt und überzeugend</li>
+          <li>Briefformat einhalten</li>
+        </ul>
+      </div>
+      <div class="body-section">
+        <h4 style="color:var(--accent1)">Unterschied zum Letter to Editor</h4>
+        <ul>
+          <li>Adressiert an <strong>Person/Organisation</strong>, nicht Editor</li>
+          <li>Wird oft <strong>veröffentlicht</strong> -- für alle lesbar</li>
+          <li>Tone etwas <strong>persönlicher</strong> möglich</li>
+          <li>Klare Forderung/Appell am Ende</li>
+        </ul>
+      </div>
+      <div class="structure">
+        <div class="step"><div class="step-num" style="background:var(--accent1)">1</div><div class="step-text">Salutation <span>-- "Dear Mr President / Dear Mayor of Berlin,..."</span></div></div>
+        <div class="step"><div class="step-num" style="background:var(--accent1)">2</div><div class="step-text">Introduction <span>-- Wer schreibt? Warum? Worum geht es?</span></div></div>
+        <div class="step"><div class="step-num" style="background:var(--accent1)">3</div><div class="step-text">Arguments <span>-- 2--3 klare Punkte mit Belegen</span></div></div>
+        <div class="step"><div class="step-num" style="background:var(--accent1)">4</div><div class="step-text">Demand/Appeal <span>-- Konkrete Forderung oder Bitte</span></div></div>
+        <div class="step"><div class="step-num" style="background:var(--accent1)">5</div><div class="step-text">Closing <span>-- "Yours sincerely," + Name</span></div></div>
+      </div>
+      <div class="phrases">
+        <span class="phrase">I am writing on behalf of...</span>
+        <span class="phrase">As a concerned citizen/student...</span>
+        <span class="phrase">It is time to take action on...</span>
+        <span class="phrase">We call upon you to...</span>
+        <span class="phrase">The evidence clearly shows...</span>
+        <span class="phrase">Yours sincerely,</span>
+      </div>
+      <button class="example-toggle" onclick="toggleExample(this)" style="--accent:var(--accent1)">▼ Beispieltext anzeigen</button>
+      <div class="example-box" style="--accent:var(--accent1)"><span class="anno">✦ BEISPIEL — Open Letter (Thema: An den Bürgermeister von Berlin)</span>Dear Mayor of Berlin, <span class="label">→ Salutation</span>
+
+We, the students of Berlin’s secondary schools, are writing to draw your attention to an issue that affects thousands of young people in our city every single day: the lack of affordable and safe cycling infrastructure. <span class="label">→ Introduction / Wer schreibt? Warum?</span>
+
+Berlin has committed to becoming a green city by 2030. Yet many of us risk our lives cycling to school on roads without protected bike lanes. Last year alone, over 600 cyclists were injured in traffic accidents in our city. This is unacceptable. <span class="label">→ Argument 1 mit Fakt</span>
+
+Furthermore, a safer cycling network would benefit not only students but the entire city — reducing traffic, improving air quality, and encouraging a healthier lifestyle for all residents. The investment is modest; the returns are enormous. <span class="label">→ Argument 2</span>
+
+We therefore call upon you to prioritise the expansion of protected cycling lanes in all districts of Berlin, beginning with the routes most commonly used by schoolchildren. <span class="label">→ Concrete demand</span>
+
+Yours sincerely,
+The Students of Berlin <span class="label">→ Formal closing</span></div>
+</div>
+
+  </div>
+
+  <!-- TEIL 2 DIVIDER -->
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-label p2">Teil 2 — Sprachmittlung / Mediation</div><div class="divider-line"></div></div>
+
+  <!-- MEDIATION ALLGEMEIN -->
+
+  <div class="card theme-green visible" data-tags="part2" id="mediation">
+    <div class="card-header" onclick="toggle(this)">
+      <div class="card-icon">🔄</div>
+      <div class="card-title-wrap">
+        <div class="card-title">Sprachmittlung -- Grundprinzip</div>
+        <div class="card-subtitle">Teil 2 · Deutsch → Englisch sinngemäß übertragen</div>
+      </div>
+      <div class="card-badge">Teil 2</div>
+      <div class="card-toggle">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="body-section">
+        <h4 style="color:var(--accent3)">Das Wichtigste</h4>
+        <ul>
+          <li><strong>Kein wörtliches Übersetzen!</strong> -- sinngemäß übertragen</li>
+          <li>Nur die für die Aufgabe <strong>relevanten Infos</strong> rausnehmen</li>
+          <li>Adressatengerecht schreiben -- Ton anpassen</li>
+          <li>Eigene Einleitung/Überleitung schreiben</li>
+          <li>Deutschen Text im Kopf lassen -- auf Englisch neu formulieren</li>
+        </ul>
+      </div>
+      <div class="body-section">
+        <h4 style="color:var(--accent3)">Häufige Fehler</h4>
+        <ul>
+          <li>Wort-für-Wort Übersetzung → klingt unnatürlich</li>
+          <li>Zu viele/zu wenige Infos aus dem Text</li>
+          <li>Falscher Ton (zu formell/informell)</li>
+          <li>Keine Einleitung zum Kontext</li>
+          <li>Grammatik-Fehler durch deutschen Satzbau</li>
+        </ul>
+      </div>
+      <div class="warning-box">
+        <strong>⚠️ Achtung:</strong> Bei der Sprachmittlung wirst du bewertet auf: Inhaltsvollständigkeit, adressatengerechten Ton UND sprachliche Korrektheit. Alle drei Bereiche zählen!
+      </div>
+      <div class="phrases">
+        <span class="phrase">I came across an article about...</span>
+        <span class="phrase">I thought you might be interested in...</span>
+        <span class="phrase">According to a German article,...</span>
+        <span class="phrase">The text mentions that...</span>
+        <span class="phrase">In other words,...</span>
+        <span class="phrase">The author points out that...</span>
+      </div>
+      <button class="example-toggle" onclick="toggleExample(this)" style="--accent:var(--accent3)">▼ Beispieltext anzeigen</button>
+      <div class="example-box" style="--accent:var(--accent3)"><span class="anno">✦ BEISPIEL — Sprachmittlung Grundprinzip (Deutscher Ausgangstext → Englisch)</span><em style="color:var(--muted);font-size:0.78rem">Deutscher Text (Aufgabe): „Laut einer neuen Studie verbringen Jugendliche in Deutschland durchschnittlich 6 Stunden täglich vor Bildschirmen. Experten warnen vor ernsthaften Folgen für die Gesundheit, darunter Schlafstörungen und Konzentrationsprobleme. Schulen fordern deshalb ein Umdenken im Umgang mit digitalen Medien."</em>
+
+According to a recent German study, teenagers spend an average of six hours per day in front of screens. <span class="label">→ Keine wörtl. Übersetzung</span>
+
+Health experts have raised serious concerns about the consequences of this trend, pointing to sleep disorders and difficulties concentrating as key issues. <span class="label">→ sinngemäß übertragen</span>
+
+As a result, schools across Germany are now calling for a fundamental rethink in the way digital media is used — both in the classroom and at home. <span class="label">→ relevante Info vollständig</span></div>
+</div>
+
+  </div>
+
+  <!-- MEDIATION EMAIL -->
+
+  <div class="card theme-orange visible" data-tags="part2" id="med-email">
+    <div class="card-header" onclick="toggle(this)">
+      <div class="card-icon">📧</div>
+      <div class="card-title-wrap">
+        <div class="card-title">Mediation -- E-Mail</div>
+        <div class="card-subtitle">Teil 2 · Häufigste Mediation-Textsorte</div>
+      </div>
+      <div class="card-badge">Teil 2</div>
+      <div class="card-toggle">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="body-section">
+        <h4 style="color:var(--accent4)">Formales nicht vergessen</h4>
+        <ul>
+          <li><strong>Subject:</strong> Betreff oben drüber</li>
+          <li>Anrede: <strong>Dear Mr/Ms...</strong> (formell) oder <strong>Hi [Name],</strong></li>
+          <li>Abschluss: <strong>Best regards / Kind regards / Cheers</strong></li>
+          <li>Deinen Namen am Ende</li>
+          <li>Ton nach Empfänger: Chef → formell, Freund → informell</li>
+        </ul>
+      </div>
+      <div class="body-section">
+        <h4 style="color:var(--accent4)">Inhalt</h4>
+        <ul>
+          <li>Kurze Einleitung: Warum schreibst du?</li>
+          <li>Wichtigste Infos aus dem deutschen Text übertragen</li>
+          <li>Eigene Kommentare / Meinung nur wenn gefragt</li>
+          <li>Kurz und präzise -- keine Roman-Länge</li>
+        </ul>
+      </div>
+      <div class="structure">
+        <div class="step"><div class="step-num" style="background:var(--accent4);color:#000">1</div><div class="step-text">Subject: <span>Kurzer, aussagekräftiger Betreff</span></div></div>
+        <div class="step"><div class="step-num" style="background:var(--accent4);color:#000">2</div><div class="step-text">Salutation <span>-- Dear.../Hi...</span></div></div>
+        <div class="step"><div class="step-num" style="background:var(--accent4);color:#000">3</div><div class="step-text">Opening line <span>-- Kontext erklären: "I came across..."</span></div></div>
+        <div class="step"><div class="step-num" style="background:var(--accent4);color:#000">4</div><div class="step-text">Main content <span>-- Relevante Infos aus deutschem Text auf Englisch</span></div></div>
+        <div class="step"><div class="step-num" style="background:var(--accent4);color:#000">5</div><div class="step-text">Closing <span>-- "Let me know if..." + Best regards + Name</span></div></div>
+      </div>
+      <div class="phrases">
+        <span class="phrase">Subject: Info about [topic]</span>
+        <span class="phrase">I hope this email finds you well.</span>
+        <span class="phrase">I recently read an article about... and thought you'd find it interesting.</span>
+        <span class="phrase">According to the article,...</span>
+        <span class="phrase">The key points are:...</span>
+        <span class="phrase">Let me know if you have any questions.</span>
+        <span class="phrase">Best regards, / Kind regards,</span>
+      </div>
+      <button class="example-toggle" onclick="toggleExample(this)" style="--accent:var(--accent4)">▼ Beispieltext anzeigen</button>
+      <div class="example-box" style="--accent:var(--accent4)"><span class="anno">✦ BEISPIEL — Mediation E-Mail (an englischsprachigen Austauschpartner)</span>Subject: Interesting article about screen time in Germany <span class="label">→ Subject</span>
+
+Hi Tom, <span class="label">→ Informelle Anrede (Freund)</span>
+
+I hope you’re doing well! I recently came across a German article about teenagers and screen time, and I thought you might find it interesting given our discussion last week. <span class="label">→ Kontext / Einleitung</span>
+
+According to the article, young people in Germany spend an average of six hours a day looking at screens. Doctors and health experts are warning that this leads to serious problems, including poor sleep and difficulty focusing in school. Because of this, many schools are now pushing for new rules about how students use digital devices. <span class="label">→ Inhalt sinngemäß auf Englisch</span>
+
+Personally, I think it’s a topic worth discussing — what’s the situation like in your country? Let me know what you think! <span class="label">→ Eigene Meinung (wenn gefragt)</span>
+
+Best regards,
+Dean <span class="label">→ Informal closing + Name</span></div>
+</div>
+
+  </div>
+
+  <!-- MEDIATION SUMMARY -->
+
+  <div class="card theme-blue visible" data-tags="part2" id="med-summary">
+    <div class="card-header" onclick="toggle(this)">
+      <div class="card-icon">📋</div>
+      <div class="card-title-wrap">
+        <div class="card-title">Mediation -- Summary / Brief</div>
+        <div class="card-subtitle">Teil 2 · Für englischsprachige Person zusammenfassen</div>
+      </div>
+      <div class="card-badge">Teil 2</div>
+      <div class="card-toggle">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="body-section">
+        <h4 style="color:#6ab8ff">Was zu tun ist</h4>
+        <ul>
+          <li>Deutschen Text für <strong>englischsprachige Person</strong> aufbereiten</li>
+          <li>Kontext erklären (woher kommt der Text?)</li>
+          <li>Ton je nach Aufgabenstellung anpassen</li>
+          <li>Nur relevante Infos für den <strong>spezifischen Empfänger</strong></li>
+        </ul>
+      </div>
+      <div class="body-section">
+        <h4 style="color:#6ab8ff">Tipps</h4>
+        <ul>
+          <li>Immer fragen: Was braucht <strong>diese Person</strong> zu wissen?</li>
+          <li>Kulturelle Begriffe erklären (z.B. "Gymnasium" = grammar school)</li>
+          <li>Zahlen und Fakten präzise übertragen</li>
+          <li>Eigene Meinung nur wenn ausdrücklich gefragt</li>
+        </ul>
+      </div>
+      <div class="phrases">
+        <span class="phrase">I would like to summarise a German article for you.</span>
+        <span class="phrase">The article was published in...</span>
+        <span class="phrase">To give you some context,...</span>
+        <span class="phrase">In Germany, this means that...</span>
+        <span class="phrase">The most important points are...</span>
+        <span class="phrase">I hope this gives you a good overview.</span>
+      </div>
+      <div class="tip-box">
+        <strong>💡 Tipp:</strong> Bei kulturspezifischen deutschen Begriffen (Abitur, Gymnasium, Bundesrat etc.) kurz auf Englisch erklären -- der englische Empfänger kennt das nicht!
+      </div>
+      <button class="example-toggle" onclick="toggleExample(this)" style="--accent:#6ab8ff">▼ Beispieltext anzeigen</button>
+      <div class="example-box" style="--accent:#6ab8ff"><span class="anno">✦ BEISPIEL — Mediation Summary (für englischsprachige Kollegin)</span>I would like to summarise a German newspaper article for you that may be relevant to our upcoming project. <span class="label">→ Einleitung / Kontext</span>
+
+The article, published in the Süddeutsche Zeitung, discusses a new German government initiative to reduce plastic waste in supermarkets. To give you some context: in Germany, supermarkets are now legally required to offer reusable alternatives to single-use plastic packaging by 2025. <span class="label">→ Kultureller Kontext erklärt</span>
+
+The most important points are as follows: firstly, the new law affects all retailers with more than five employees. Secondly, consumers will be able to bring their own containers for products such as meat, cheese and salads. Finally, experts predict that this measure could eliminate up to 40,000 tonnes of plastic waste per year. <span class="label">→ Schlüsselinfos präzise</span>
+
+I hope this gives you a useful overview. Please let me know if you need any further details. <span class="label">→ Abschluss</span></div>
+</div>
+
+  </div>
+
+  <!-- ARTIKEL -->
+
+  <div class="card theme-teal visible" data-tags="part1 kreativ argumentativ" id="article">
+    <div class="card-header" onclick="toggle(this)">
+      <div class="card-icon">📰</div>
+      <div class="card-title-wrap">
+        <div class="card-title">Article</div>
+        <div class="card-subtitle">Aufgabe 3 · Informierender Meinungsartikel</div>
+      </div>
+      <div class="card-badge">Aufgabe 3</div>
+      <div class="card-toggle">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="body-section">
+        <h4 style="color:#6affee">Was zu tun ist</h4>
+        <ul>
+          <li>Leser <strong>informieren</strong> und eigene Meinung ausdrücken</li>
+          <li>Ton: je nach Magazin formell oder semi-formell</li>
+          <li>Catchy <strong>Headline</strong> nicht vergessen!</li>
+          <li>Zielgruppe beachten (politisch, jugendlich, etc.)</li>
+          <li>Eigene Ideen + Material aus dem Text kombinieren</li>
+        </ul>
+      </div>
+      <div class="body-section">
+        <h4 style="color:#6affee">Unterschied zu Essay/Blog</h4>
+        <ul>
+          <li><strong>Essay</strong> = akademisch, keine Überschrift nötig</li>
+          <li><strong>Blog</strong> = sehr persönlich, locker</li>
+          <li><strong>Article</strong> = für Magazin/Zeitung, Headline + Byline</li>
+          <li>Weniger persönlich als Blog, weniger formal als Essay</li>
+        </ul>
+      </div>
+      <div class="structure">
+        <div class="step"><div class="step-num" style="background:#6affee;color:#000">1</div><div class="step-text">Headline <span>– Catchy, themenrelevant, zielgruppengerecht</span></div></div>
+        <div class="step"><div class="step-num" style="background:#6affee;color:#000">2</div><div class="step-text">Introduction <span>– Hook: Anekdote, Statistik, provokante Frage</span></div></div>
+        <div class="step"><div class="step-num" style="background:#6affee;color:#000">3</div><div class="step-text">Main Part <span>– Argumente + Gegenargumente, Beispiele, Belege</span></div></div>
+        <div class="step"><div class="step-num" style="background:#6affee;color:#000">4</div><div class="step-text">Conclusion <span>– Fazit, Ausblick, Handlungsempfehlung</span></div></div>
+      </div>
+      <div class="phrases">
+        <span class="phrase">Recent studies suggest that...</span>
+        <span class="phrase">It has become increasingly clear that...</span>
+        <span class="phrase">Experts warn that...</span>
+        <span class="phrase">While many argue that... others believe...</span>
+        <span class="phrase">The question is no longer whether... but when.</span>
+        <span class="phrase">As things stand,...</span>
+      </div>
+      <button class="example-toggle" onclick="toggleExample(this)" style="--accent:#6affee">▼ Beispieltext anzeigen</button>
+      <div class="example-box" style="--accent:#6affee"><span class="anno">✦ BEISPIEL — Article (Magazin: Young Voices, Thema: AI in Schools)</span>Should Artificial Intelligence Be Allowed in Schools? <span class="label">→ Headline</span>
+
+Imagine sitting in an exam hall, knowing that somewhere on the internet, a computer could answer every question on your paper in seconds. This is no longer science fiction — it is the reality students face today. <span class="label">→ Hook</span>
+
+Artificial intelligence tools such as ChatGPT have transformed the way young people access information. Proponents argue that AI can personalise learning, assist students with disabilities, and prepare the next generation for a digital workforce. These are real benefits that educators cannot afford to ignore. <span class="label">→ Argument 1</span>
+
+However, the risks are equally real. When students use AI to complete their homework, they bypass the very process of thinking, struggling, and learning from mistakes that education is designed to foster. According to a 2023 survey, nearly 40% of secondary school students admitted to using AI tools for assignments without declaring it. <span class="label">→ Counterargument + Statistik</span>
+
+The answer, perhaps, lies not in banning AI, but in teaching students how to use it responsibly. Schools must adapt — not surrender. <span class="label">→ Conclusion</span></div>
+</div>
+
+  </div>
+
+  <!-- DIARY ENTRY -->
+
+  <div class="card theme-pink visible" data-tags="part1 kreativ" id="diary">
+    <div class="card-header" onclick="toggle(this)">
+      <div class="card-icon">📓</div>
+      <div class="card-title-wrap">
+        <div class="card-title">Diary Entry</div>
+        <div class="card-subtitle">Aufgabe 3 · Persönlicher Tagebucheintrag</div>
+      </div>
+      <div class="card-badge">Aufgabe 3</div>
+      <div class="card-toggle">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="body-section">
+        <h4 style="color:#ff6ab8">Was zu tun ist</h4>
+        <ul>
+          <li><strong>Sehr persönlicher</strong>, emotionaler Ton</li>
+          <li>Aus der <strong>Ich-Perspektive</strong> schreiben</li>
+          <li>Datum am Anfang nicht vergessen: <strong>Monday, 12th April</strong></li>
+          <li>Gedanken, Gefühle, Reflexionen ausdrücken</li>
+          <li>Kontextbezug: Wer ist die Person? Was hat sie erlebt?</li>
+        </ul>
+      </div>
+      <div class="body-section">
+        <h4 style="color:#ff6ab8">Sprache & Ton</h4>
+        <ul>
+          <li>Informelle Sprache erlaubt: <strong>contractions, ellipsis</strong></li>
+          <li>Emotionale Ausdrücke: "I couldn't believe it", "I was devastated"</li>
+          <li>Rhetorical questions an sich selbst</li>
+          <li>Anrede: <strong>Dear Diary,</strong></li>
+          <li>Abschluss: <strong>[Name]</strong> oder einfach unterschreiben</li>
+        </ul>
+      </div>
+      <div class="structure">
+        <div class="step"><div class="step-num" style="background:#ff6ab8">1</div><div class="step-text">Date + Salutation <span>– "Monday, 14th April / Dear Diary,"</span></div></div>
+        <div class="step"><div class="step-num" style="background:#ff6ab8">2</div><div class="step-text">What happened <span>– Ereignis beschreiben (kurz und subjektiv)</span></div></div>
+        <div class="step"><div class="step-num" style="background:#ff6ab8">3</div><div class="step-text">Feelings & thoughts <span>– Wie fühle ich mich? Was denke ich?</span></div></div>
+        <div class="step"><div class="step-num" style="background:#ff6ab8">4</div><div class="step-text">Reflection <span>– Was bedeutet das für mich? Was werde ich tun?</span></div></div>
+        <div class="step"><div class="step-num" style="background:#ff6ab8">5</div><div class="step-text">Closing <span>– Name / Unterschrift</span></div></div>
+      </div>
+      <div class="phrases">
+        <span class="phrase">Dear Diary,</span>
+        <span class="phrase">I can't believe what happened today.</span>
+        <span class="phrase">I've been thinking a lot about...</span>
+        <span class="phrase">Part of me wanted to..., but...</span>
+        <span class="phrase">I don't know what to make of it.</span>
+        <span class="phrase">Maybe tomorrow will be different.</span>
+      </div>
+      <button class="example-toggle" onclick="toggleExample(this)" style="--accent:#ff6ab8">▼ Beispieltext anzeigen</button>
+      <div class="example-box" style="--accent:#ff6ab8"><span class="anno">✦ BEISPIEL — Diary Entry (fiktiv, Thema: Aims and Ambitions)</span>Thursday, 23rd March <span class="label">→ Datum</span>
+
+Dear Diary, <span class="label">→ Anrede</span>
+
+I can’t believe it. After months of waiting, the letter finally arrived this morning. I got in. I actually got into the programme. <span class="label">→ Was ist passiert</span>
+
+Mum cried when she read it. Dad just kept shaking his head, smiling. I didn’t know what to feel — relief, mostly, but also this strange, creeping fear. What if I’m not good enough? What if everyone there is smarter than me? <span class="label">→ Gefühle + innere Gedanken</span>
+
+I keep thinking about everything I gave up this year to get here. All those evenings I turned down plans, all those weekends I spent in the library while everyone else seemed to be living. Was it worth it? I think it was. I hope it was. <span class="label">→ Reflexion</span>
+
+Tomorrow I’ll start planning. But tonight, I just want to sit with this feeling for a little while longer. <span class="label">→ Abschluss / Ausblick</span>
+
+Nao <span class="label">→ Unterschrift</span></div>
+</div>
+
+  </div>
+
+  <!-- DISCUSSION / COMMENT -->
+
+  <div class="card theme-blue visible" data-tags="part1 argumentativ" id="discussion">
+    <div class="card-header" onclick="toggle(this)">
+      <div class="card-icon">⚖️</div>
+      <div class="card-title-wrap">
+        <div class="card-title">Discussion / Comment</div>
+        <div class="card-subtitle">Aufgabe 3 · Diskussion oder Stellungnahme</div>
+      </div>
+      <div class="card-badge">Aufgabe 3</div>
+      <div class="card-toggle">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="body-section">
+        <h4 style="color:#6ab8ff">Discussion vs. Comment</h4>
+        <ul>
+          <li><strong>Discussion</strong> = Pro und Contra abwägen, beide Seiten</li>
+          <li><strong>Comment</strong> = eigene Meinung vertreten, eine Seite</li>
+          <li>Beide brauchen klare Struktur und Belege</li>
+          <li>Am Ende immer eigene <strong>Position</strong> klar machen</li>
+        </ul>
+      </div>
+      <div class="body-section">
+        <h4 style="color:#6ab8ff">Wichtige Operatoren</h4>
+        <ul>
+          <li><strong>"Discuss"</strong> → beide Seiten + eigenes Fazit</li>
+          <li><strong>"Comment on"</strong> → Bezug auf Text + eigene Meinung</li>
+          <li><strong>"Assess"</strong> → bewerten, wie stark ist das Argument?</li>
+          <li><strong>"Evaluate"</strong> → kritisch beurteilen</li>
+        </ul>
+      </div>
+      <div class="structure">
+        <div class="step"><div class="step-num" style="background:#6ab8ff;color:#000">1</div><div class="step-text">Introduction <span>– Thema vorstellen, eigene Position andeuten</span></div></div>
+        <div class="step"><div class="step-num" style="background:#6ab8ff;color:#000">2</div><div class="step-text">Pro-Argumente <span>– 2 Argumente mit Belegen</span></div></div>
+        <div class="step"><div class="step-num" style="background:#6ab8ff;color:#000">3</div><div class="step-text">Contra-Argumente <span>– 1-2 Gegenargumente fair darstellen</span></div></div>
+        <div class="step"><div class="step-num" style="background:#6ab8ff;color:#000">4</div><div class="step-text">Conclusion <span>– Eigenes Fazit + klare Position</span></div></div>
+      </div>
+      <div class="phrases">
+        <span class="phrase">I would like to discuss/comment on...</span>
+        <span class="phrase">On the one hand... on the other hand...</span>
+        <span class="phrase">While... whereas...</span>
+        <span class="phrase">It is my belief/opinion that...</span>
+        <span class="phrase">There is no doubt that...</span>
+        <span class="phrase">All in all, I think...</span>
+        <span class="phrase">I would like to conclude by saying that...</span>
+      </div>
+      <button class="example-toggle" onclick="toggleExample(this)" style="--accent:#6ab8ff">▼ Beispieltext anzeigen</button>
+      <div class="example-box" style="--accent:#6ab8ff"><span class="anno">✦ BEISPIEL — Discussion (Thema: "Should the voting age be lowered to 16?")</span>The question of whether the voting age should be lowered to 16 has sparked considerable debate in recent years. I would like to discuss the key arguments on both sides before presenting my own view. <span class="label">→ Introduction</span>
+
+On the one hand, there are compelling reasons to support the change. At 16, young people in many countries can drive, work, and pay taxes — yet they have no say in the political decisions that shape their lives. Furthermore, studies from countries like Austria, where 16-year-olds have voted since 2007, suggest that younger voters are highly engaged and informed. <span class="label">→ Pro-Argumente</span>
+
+On the other hand, critics argue that 16-year-olds may lack the life experience needed to make fully informed political judgements. The prefrontal cortex — responsible for decision-making — is not fully developed until the mid-20s, which raises legitimate concerns about political manipulation of younger voters. <span class="label">→ Contra-Argumente</span>
+
+All in all, I believe the benefits outweigh the risks. Democracy is strengthened when more voices are included, and there is no reason why young people should be excluded from shaping their own future. <span class="label">→ Eigenes Fazit</span></div>
+</div>
+
+  </div>
+
+  <!-- STILMITTEL TABELLE -->
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-label p1" style="color:#ff6ab8;border-color:rgba(255,106,184,0.3);background:rgba(255,106,184,0.06)">Stilmittel & Referenz</div><div class="divider-line"></div></div>
+
+  <div class="card theme-pink visible" data-tags="part1 stilmittel analyse" id="devices">
+    <div class="card-header" onclick="toggle(this)">
+      <div class="card-icon">🎨</div>
+      <div class="card-title-wrap">
+        <div class="card-title">Stylistic Devices – Alle Stilmittel</div>
+        <div class="card-subtitle">Vollständige Referenztabelle für die Text Analysis</div>
+      </div>
+      <div class="card-badge" style="--badge-rgb:255,106,184">Referenz</div>
+      <div class="card-toggle">▼</div>
+    </div>
+    <div class="card-body">
+      <table class="devices-table">
+        <thead><tr><th>Stilmittel</th><th>Erklärung</th><th>Beispiel</th></tr></thead>
+        <tbody>
+          <tr><td>Alliteration</td><td>Wiederholung von Anfangslauten</td><td><em>"the price and promise of citizenship"</em></td></tr>
+          <tr><td>Allusion</td><td>Verweis auf bekanntes Ereignis/Person/Werk</td><td><em>"This place is like the garden of Eden."</em></td></tr>
+          <tr><td>Ambiguity</td><td>Wort/Phrase mit mehreren Bedeutungen</td><td><em>"I rode a white horse in pink pajamas."</em></td></tr>
+          <tr><td>Anaphora</td><td>Wiederholung desselben Wortes am Satzanfang</td><td><em>"We want our kids... We want our children... We want to pass on..."</em></td></tr>
+          <tr><td>Connotation</td><td>Gefühle/Assoziationen mit Wörtern (positiv/negativ)</td><td><em>"youthful" (positiv) vs. "childish" (negativ)</em></td></tr>
+          <tr><td>Contrast / Antithesis</td><td>Gegensätzliche Ideen nebeneinander</td><td><em>"We must live together as brothers or perish together as fools."</em></td></tr>
+          <tr><td>Ellipsis</td><td>Auslassungspunkte – Lücken für den Leser</td><td><em>"She saw her ex... and her heart... Then she left."</em></td></tr>
+          <tr><td>Emotive Language</td><td>Sprachliche Mittel, die Emotionen wecken</td><td><em>"The defenseless wolf was violently attacked."</em></td></tr>
+          <tr><td>Enumeration</td><td>Auflistung von Wörtern/Ideen</td><td><em>"a generous, compassionate, tolerant America"</em></td></tr>
+          <tr><td>Exaggeration / Hyperbole</td><td>Übertreibung für dramatischen Effekt</td><td><em>"This is going to lead to World War III."</em></td></tr>
+          <tr><td>Flashback</td><td>Rückblende auf vergangene Ereignisse</td><td><em>"Back in the day, when Sarah was young..."</em></td></tr>
+          <tr><td>Foreshadowing</td><td>Andeutung zukünftiger Ereignisse</td><td>Dunkle Wolken vor einem Sturm in der Story</td></tr>
+          <tr><td>Implicit Characterization</td><td>Figur durch Handlungen/Umgebung beschrieben</td><td><em>Leserin erkennt: die Figur ist mutig, weil sie handelt</em></td></tr>
+          <tr><td>Explicit Characterization</td><td>Direkte Beschreibung von Aussehen/Charakter</td><td><em>"She had red bushy hair and a cute little smile."</em></td></tr>
+          <tr><td>Interjection</td><td>Kurzer Ausruf zur Emotion</td><td><em>"Oh!", "Wow!", "BANG!"</em></td></tr>
+          <tr><td>Irony / Sarcasm</td><td>Wörter bedeuten das Gegenteil des Gesagten</td><td><em>"Oh great, another Monday."</em></td></tr>
+          <tr><td>Metaphor</td><td>Indirekter Vergleich ohne "like"/"as"</td><td><em>"There's daggers in men's smiles."</em></td></tr>
+          <tr><td>Onomatopoeia</td><td>Wort klingt wie das, was es beschreibt</td><td><em>"BANG! BANG! BANG!"</em></td></tr>
+          <tr><td>Parallelism</td><td>Gleiche grammatische Struktur wiederholt</td><td><em>"I came, I saw, I conquered."</em></td></tr>
+          <tr><td>Personification</td><td>Unbelebte Dinge werden vermenschlicht</td><td><em>"The wind cries softly outside the window."</em></td></tr>
+          <tr><td>Point of View</td><td>Erzählperspektive (1st / 3rd person)</td><td><em>"She didn't understand why her dad was so strict."</em></td></tr>
+          <tr><td>Pun</td><td>Wortspiel mit ähnlichem Klang</td><td><em>"Denial is a river in Egypt." (= The Nile)</em></td></tr>
+          <tr><td>Register</td><td>Grad der Formalität der Sprache</td><td>formal / neutral / informal / slang</td></tr>
+          <tr><td>Repetition</td><td>Wiederholung von Wörtern/Phrasen zur Betonung</td><td><em>"That's the promise of America. That's the promise."</em></td></tr>
+          <tr><td>Rhetorical Question</td><td>Frage, deren Antwort offensichtlich ist</td><td><em>"What is that American promise?"</em></td></tr>
+          <tr><td>Satire</td><td>Kritik durch Humor/Übertreibung</td><td><em>The Simpsons als Satire auf das amerikanische Leben</em></td></tr>
+          <tr><td>Simile</td><td>Direkter Vergleich mit "like" oder "as"</td><td><em>"My mistress' eyes are nothing like the sun."</em></td></tr>
+          <tr><td>Symbol</td><td>Objekt steht für eine größere Idee</td><td>Herz = Liebe / Totenkopf = Tod</td></tr>
+          <tr><td>Understatement</td><td>Absichtliche Untertreibung</td><td><em>"It's a bit nippy today." (bei Minusgraden)</em></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- LINKING WORDS -->
+
+  <div class="card theme-green visible" data-tags="linking stilmittel" id="linking">
+    <div class="card-header" onclick="toggle(this)">
+      <div class="card-icon">🔗</div>
+      <div class="card-title-wrap">
+        <div class="card-title">Linking Words</div>
+        <div class="card-subtitle">Alle Verbindungswörter nach Kategorie</div>
+      </div>
+      <div class="card-badge">Referenz</div>
+      <div class="card-toggle">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="linking-grid">
+        <div class="linking-cat" style="--accent:var(--accent1)">
+          <h5 style="color:var(--accent1)">📋 Reihenfolge / Order</h5>
+          <div class="lw">
+            <span>First(ly), Second(ly), Finally</span>
+            <span>To begin with <em>– zunächst</em></span>
+            <span>Then / After that</span>
+            <span>Ultimately <em>– letztlich</em></span>
+            <span>In the end / Eventually</span>
+          </div>
+        </div>
+        <div class="linking-cat" style="--accent:var(--accent2)">
+          <h5 style="color:var(--accent2)">➡️ Ergebnis / Result</h5>
+          <div class="lw">
+            <span>Therefore / Thus / Hence</span>
+            <span>As a result / Consequently</span>
+            <span>That is why</span>
+            <span>Because of / Due to</span>
+            <span>Accordingly <em>– dementsprechend</em></span>
+          </div>
+        </div>
+        <div class="linking-cat" style="--accent:var(--accent3)">
+          <h5 style="color:var(--accent3)">➕ Hinzufügen / Addition</h5>
+          <div class="lw">
+            <span>Furthermore / Moreover</span>
+            <span>In addition / Besides</span>
+            <span>Not only... but also</span>
+            <span>What is more</span>
+            <span>As well as / Too / Also</span>
+          </div>
+        </div>
+        <div class="linking-cat" style="--accent:var(--accent4)">
+          <h5 style="color:var(--accent4)">⚖️ Vergleich / Contrast</h5>
+          <div class="lw">
+            <span>However / Nevertheless</span>
+            <span>On the one hand... on the other hand</span>
+            <span>Although / Even though</span>
+            <span>Whereas / While / In contrast</span>
+            <span>Despite / In spite of</span>
+            <span>Yet / Still / Nonetheless</span>
+          </div>
+        </div>
+        <div class="linking-cat" style="--accent:#6ab8ff">
+          <h5 style="color:#6ab8ff">💬 Meinung / Opinion</h5>
+          <div class="lw">
+            <span>In my opinion / view</span>
+            <span>From my point of view</span>
+            <span>I would argue that</span>
+            <span>It is my belief that</span>
+            <span>As far as I am concerned</span>
+            <span>Personally, I think</span>
+          </div>
+        </div>
+        <div class="linking-cat" style="--accent:#ff6ab8">
+          <h5 style="color:#ff6ab8">📎 Beispiele / Examples</h5>
+          <div class="lw">
+            <span>For example / For instance</span>
+            <span>Such as / Like</span>
+            <span>A case in point is</span>
+            <span>In particular / Especially</span>
+            <span>To illustrate this</span>
+          </div>
+        </div>
+        <div class="linking-cat" style="--accent:#f0ff6a">
+          <h5 style="color:#f0ff6a">🏁 Fazit / Conclusion</h5>
+          <div class="lw">
+            <span>In conclusion / To sum up</span>
+            <span>All in all / On the whole</span>
+            <span>In a nutshell / In short</span>
+            <span>Taking everything into account</span>
+            <span>It is clear that...</span>
+            <span>Ultimately / In essence</span>
+          </div>
+        </div>
+        <div class="linking-cat" style="--accent:#6affee">
+          <h5 style="color:#6affee">🎯 Qualifizieren / Modify</h5>
+          <div class="lw">
+            <span>Admittedly / To some extent</span>
+            <span>In theory... in practice</span>
+            <span>By and large / More or less</span>
+            <span>It could be argued that</span>
+            <span>To a certain degree</span>
+            <span>Rather than / Instead of</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+
+  function toggleExample(btn) {
+    const box = btn.nextElementSibling;
+    box.classList.toggle('open');
+    btn.textContent = box.classList.contains('open') ? '▲ Beispieltext ausblenden' : '▼ Beispieltext anzeigen';
+  }
+
+  function toggle(header) {
+    const card = header.parentElement;
+    card.classList.toggle('open');
+  }
+
+  function filterCards(tag) {
+    const cards = document.querySelectorAll('.card');
+    const buttons = document.querySelectorAll('.nav-btn');
+    buttons.forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+
+    cards.forEach(card => {
+      if (tag === 'all') {
+        card.classList.add('visible');
+      } else {
+        const tags = card.dataset.tags || '';
+        if (tags.includes(tag)) {
+          card.classList.add('visible');
+        } else {
+          card.classList.remove('visible');
+          card.classList.remove('open');
+        }
+      }
+    });
+  }
+
+  function expandAll() {
+    document.querySelectorAll('.card.visible').forEach(c => c.classList.add('open'));
+  }
+
+  function collapseAll() {
+    document.querySelectorAll('.card').forEach(c => c.classList.remove('open'));
+  }
+</script>
+
+</body>
+</html>
